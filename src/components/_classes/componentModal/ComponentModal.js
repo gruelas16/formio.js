@@ -157,6 +157,9 @@ export default class ComponentModal {
     event.preventDefault();
     if (!this.component.disabled) {
       this.component.setValue(_.cloneDeep(this.currentValue), { resetValue: true });
+      this.closeModal();
+      this.component.updateModalComponent && this.component.updateModalComponent();
+      return;
     }
     this.closeModal();
   }
